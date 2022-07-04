@@ -6,3 +6,8 @@ applications:
     memory: 256M
     command: node dist/index.js
     random-route: true
+    services:
+      - tw-connectivity-service
+      - cred-store
+      - destination-service
+      
