@@ -1,0 +1,7 @@
+applications:
+  - name: btk-tuk
+    path: ./
+    buildpacks:
+      - nodejs_buildpack
+    memory: 256M
+    command: node dist/index.js
