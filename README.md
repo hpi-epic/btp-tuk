@@ -35,3 +35,8 @@ Password: <your pw>
 ### Optional: Clean-up 
 - delete account
 - delete cli
+
+### TODO (from https://answers.sap.com/questions/13222105/use-nodejs.html)
+- Credential store ?
+- connectivity service
+- destination service
