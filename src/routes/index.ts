@@ -7,6 +7,7 @@ import { environment } from "$lib/environment"
 const VCAP_SERVICES = process.env.VCAP_SERVICES ? JSON.parse(process.env.VCAP_SERVICES) : JSON.parse(environment.VCAP_SERVICES).VCAP_SERVICES;
 const conSrvCred = VCAP_SERVICES.connectivity[0].credentials;
 
+
 export const get = async () => {
 
     const proxy_access_token = await getProxyAccessToken(conSrvCred.token_service_url, conSrvCred.clientid, conSrvCred.clientsecret);
@@ -29,10 +30,7 @@ const getProxyAccessToken = async function (oauthUrl: string, oauthClient: strin
         }
         axios.get(tokenUrl, config)
             .then(response => resolve(response.data.access_token))
-            .catch(error => {
-                console.log("Failed to fetch access token for proxy.")
-                reject(error)
-            })
+            .catch(error => reject(error))
     })
 }
 
@@ -42,6 +40,10 @@ const getVBAKData = async function (connProxyHost: any, connProxyPort: any, conn
         const config = {
             headers: {
                 'Proxy-Authorization': 'Bearer ' + connJwtToken
+            },
+            proxy: {
+                host: connProxyHost,
+                port: connProxyPort
             },
             auth: {
                 username: 'STUDENT2021',
