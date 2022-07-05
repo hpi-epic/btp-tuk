@@ -63,12 +63,12 @@ In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our r
     ![](img/create-connectivity-service.png)
 4. Follow the setup (you don't have to enter parameters):
     ![](img/setup.png)
-5. Check the status under *Instances* (should be *created*):
+5. Check the status under *Instances* (status should be *created* after a few moments):
     ![](img/instances.png)
 6. Voilà!
 
 ### Connect Your BTP Account To The On-prom Cloud Connector
-As described above, we use the [SAP Cloud Connector](https://blogs.sap.com/2022/02/03/cloud-connector-explained-in-simple-terms/) to enable SAP cloud products to connect to the on-premise systems in our own landscape. It basically tunnels the requests.
+As described above, we use the [SAP Cloud Connector](https://blogs.sap.com/2022/02/03/cloud-connector-explained-in-simple-terms/) (SCC) to enable SAP cloud products to connect to the on-premise systems in our own landscape. It basically tunnels the requests.
 
 Please follow these steps to configure the SAP Cloud Connector to connect your SAP BTP account:
 
@@ -91,7 +91,19 @@ Please follow these steps to configure the SAP Cloud Connector to connect your S
     5. Switch to your own subaccount:
     ![](img/switch-subaccounts.png)
     6. Connect the on-premise HANA to the cloud by providing a mapping from the virtual host (vm-he4-hana.eaalab.hpi.uni-potsdam.de) to the internal host (localhost):
-
+    ![](img/add-subacc-1.png)
+    ![](img/add-subacc-2.png)
+    ![](img/add-subacc-3.png)
+    ![](img/add-subacc-4.png)
+    ![](img/add-subacc-5.png)
+    ![](img/add-subacc-6.png)
+    ![](img/add-subacc-7.png)
+    ![](img/add-subacc-8.png)
+    ![](img/add-subacc-9.png)
+    ![](img/add-subacc-10.png)
+    Add the corresponding ressources by adding the URL path ``/`` and save:
+    ![](img/add-subacc-11.png)
+3. You did it! We can leave the SCC now and start building our app.
 ### GitHub Clone
 
 For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). (You do not need to understand what Svelte is doing, however it is a cool framework for frontend development) Clone the project via g
