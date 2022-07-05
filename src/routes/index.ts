@@ -7,6 +7,7 @@ import axios from 'axios';
 //@ts-ignore
 const VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES);
 const conSrvCred = VCAP_SERVICES.connectivity[0].credentials;
+
 // const conSrvCred = {
 //     token_service_url:"https://58f7db29trial.authentication.us10.hana.ondemand.com",
 //     clientid: "sb-clonea2a8fe67513042199aa4cea99849a38a!b86869|destination-xsappname!b62",
@@ -18,23 +19,23 @@ const conSrvCred = VCAP_SERVICES.connectivity[0].credentials;
 
 export const get = async () => {
 
-let tables = new Promise(async (resolve, reject) => {
+    let tables = new Promise(async (resolve, reject) => {
 
-    try {
-        const connJwtToken = await _fetchJwtToken(conSrvCred.token_service_url, conSrvCred.clientid, conSrvCred.clientsecret);
-        console.log("token",connJwtToken)
-        const result =  await _callOnPremHttp(conSrvCred.onpremise_proxy_host, conSrvCred.onpremise_proxy_http_port, connJwtToken);
-        console.log("all good")
-        resolve(result);
-    } catch (e) {
-        console.log(e)
-        console.log("fucked up");
-        reject(e);
-    } 
+        try {
+            const connJwtToken = await _fetchJwtToken(conSrvCred.token_service_url, conSrvCred.clientid, conSrvCred.clientsecret);
+            console.log("token", connJwtToken)
+            const result = await _callOnPremHttp(conSrvCred.onpremise_proxy_host, conSrvCred.onpremise_proxy_http_port, connJwtToken);
+            console.log("all good")
+            resolve(result);
+        } catch (e) {
+            console.log(e)
+            console.log("fucked up");
+            reject(e);
+        }
 
-})
+    })
 
-    
+
     // var client = hdb.createClient({
     //     host     : 'vm-he4-hana.eaalab.hpi.uni-potsdam.de',
     //     port     : 30015,
@@ -53,10 +54,10 @@ let tables = new Promise(async (resolve, reject) => {
     //             console.error('Connection error', err);
     //             reject(err)
     //         }
-            
+
     //         client.exec(query, function (err: any, rows: any) {
     //             client.end();
-    
+
     //             if (err) {
     //                 console.error('Execute error:', err);
     //                 reject(err)
@@ -70,49 +71,48 @@ let tables = new Promise(async (resolve, reject) => {
     // })
 
     return {
-         body: {
-             //tables: await tables
-             tables: await tables
+        body: {
+            tables: await tables
 
-         }
+        }
     }
 }
-const _fetchJwtToken = async function(oauthUrl: string, oauthClient: string, oauthSecret: string) {
-	return new Promise ((resolve, reject) => {
-		const tokenUrl = oauthUrl + '/oauth/token?grant_type=client_credentials&response_type=token'  
+const _fetchJwtToken = async function (oauthUrl: string, oauthClient: string, oauthSecret: string) {
+    return new Promise((resolve, reject) => {
+        const tokenUrl = oauthUrl + '/oauth/token?grant_type=client_credentials&response_type=token'
         const config = {
-			headers: {
-			   Authorization: "Basic " + Buffer.from(oauthClient + ':' + oauthSecret).toString("base64")
-			}
+            headers: {
+                Authorization: "Basic " + Buffer.from(oauthClient + ':' + oauthSecret).toString("base64")
+            }
         }
-		axios.get(tokenUrl, config)
-        .then(response => {
-		   resolve(response.data.access_token)
-        })
-        .catch(error => {
-		   reject(error)
-        })
-	})   
+        axios.get(tokenUrl, config)
+            .then(response => {
+                resolve(response.data.access_token)
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
 }
 
-const _callOnPremHttp = async function(connProxyHost: any, connProxyPort: any, connJwtToken: unknown){
+const _callOnPremHttp = async function (connProxyHost: any, connProxyPort: any, connJwtToken: unknown) {
     return new Promise((resolve, reject) => {
-        const targetUrl = "http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:4004/say/hello(to='Tobias')" 
+        const targetUrl = "http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:4004/say/hello(to='Tobias')"
         const config = {
             headers: {
                 'Proxy-Authorization': 'Bearer ' + connJwtToken
             },
             proxy: {
-				host: connProxyHost,
-				port: connProxyPort
+                host: connProxyHost,
+                port: connProxyPort
             }
         }
-		axios.get(targetUrl, config)
-        .then(response => {
-           resolve(response.data)
-        })
-        .catch(error => {
-	      reject(error)
-        })
-	})    
+        axios.get(targetUrl, config)
+            .then(response => {
+                resolve(response.data)
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
 }
