@@ -143,7 +143,7 @@ For your convenience, we prepared a small [Svelte](https://svelte.dev/) applicat
 ````
 
 ### Deploy Your Application
-To deploy your application, you need to create a ``manifest.yml`` file in the root folder as described [here](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html):
+To deploy your application, you need to create a ``manifest.yml`` file in your project's root folder as described [here](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html):
 
 
 ```yaml
@@ -161,9 +161,10 @@ applications:
       - destination-service
 ```
 
-execute the following account:
+The following commands can be executed to build the app and push it to the BTP:
 ```shell
-> npm run build && cf push
+> npm run build
+> cf push
 ```
 In your Cloud Foundry spaces, you can find your deployed applications and access them:
 ![](img/cf-spaces-0.png)
