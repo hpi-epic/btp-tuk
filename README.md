@@ -142,6 +142,8 @@ For your convenience, we prepared a small [Svelte](https://svelte.dev/) applicat
 > npm install
 ````
 
+TODO CREATE .env.development
+
 ### Deploy Your Application
 To deploy your application, you need to create a ``manifest.yml`` file in your project's root folder as described [here](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html):
 
