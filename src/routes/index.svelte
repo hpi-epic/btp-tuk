@@ -28,7 +28,7 @@
 
                 letrs = Object.entries(letrs)
                     .sort()
-                    .reduce((o, [k, v]) => ((o[k] = v), o), {});
+                    .reduce((o: {[index: string]: {name: string, value: string}}, [k, v]) => ((o[k] = v), o), {});
 
                 return Object.values(letrs);
             },
