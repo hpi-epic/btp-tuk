@@ -2,6 +2,7 @@ import _ from "lodash";
 import axios from 'axios';
 import type { ODataRequest, PurchasingView } from "$lib/interface/odata"
 import { useProxy } from "$lib/proxy";
+import { ENV } from "$lib/environment";
 
 // if we are in production mode, accordingly, using the SAP BTP, we need to use the Proxy
 if(process.env.NODE_ENV == 'production'){
@@ -28,6 +29,7 @@ export const get = async () => {
  * @returns 
  */
 const purchasingViewGet = async function (): Promise<ODataRequest<PurchasingView>> {
+    console.log("HIER: " + ENV.ODATA_HPI_HANA_USERNAME)
     return new Promise((resolve, reject) => {
         const targetUrl = "http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/purchasing_view/?$format=json"
         const config = {
@@ -35,8 +37,8 @@ const purchasingViewGet = async function (): Promise<ODataRequest<PurchasingView
                 'cache-control': 'public, max-age=3600',
             },
             auth: {
-                username: 'STUDENT2021',
-                password: 'Student2021'
+                username: ENV.ODATA_HPI_HANA_USERNAME,
+                password: ENV.ODATA_HPI_HANA_PASSWORD
             }
         }
         axios.get(targetUrl, config)

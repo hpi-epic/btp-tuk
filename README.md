@@ -4,7 +4,7 @@
 
 This exercise should give a first impression about cloud platforms using the example of the SAP business technology platform (BTP). The SAP BTP is a Platform as a Service (PaaS) offering by SAP that helps you to connect to connect data and business processes of your enterprise. The goal of this exercise is to show you basic functionalities of the SAP BTP prior to our block week.
 
-> Note: We only use the SAP BTP as an example for cloud platforms. Other cloud platforms such as Google Platform, Microsoft Azure and Amazon AWS are also capable to enhance your business.
+> Note: We only use the SAP BTP as an example for cloud platforms. Other cloud platforms such as Google Platform, Microsoft Azure and Amazon AWS are also capable to enhance businesses.
 
 ## Exercise
 
@@ -157,6 +157,13 @@ applications:
     random-route: true
     services:
       - <your connectivity service>
+```
+
+Our app requires two environment variables to connect to our on-premises SAP HANA: username and password to access the ODataService.  With the following two commands you can add the two environment variables to our cloud application.
+
+```shell
+> cf set-env btk-tuk VITE_ODATA_HPI_HANA_USERNAME STUDENT2021
+> cf set-env btk-tuk VITE_ODATA_HPI_HANA_PASSWORD Student2021
 ```
 
 The following commands can be executed to build the app and push it to the BTP:
