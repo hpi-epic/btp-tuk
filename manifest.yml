@@ -7,7 +7,6 @@ applications:
     command: node dist/index.js
     random-route: true
     services:
-      - tw-connectivity-service
-      - cred-store
-      - destination-service
+      - sample-connectivity-service
+      - sample-destination-service
       
