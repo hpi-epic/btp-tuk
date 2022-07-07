@@ -156,9 +156,7 @@ applications:
     command: node dist/index.js
     random-route: true
     services:
-      - tw-connectivity-service
-      - cred-store
-      - destination-service
+      - <your connectivity service>
 ```
 
 The following commands can be executed to build the app and push it to the BTP:
