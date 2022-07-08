@@ -27,5 +27,6 @@ main {
 </style>
 
 <script>
+  import "../app.css";
   import Header from "./header/header.svelte"
 </script>

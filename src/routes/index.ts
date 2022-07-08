@@ -29,7 +29,6 @@ export const get = async () => {
  * @returns 
  */
 const purchasingViewGet = async function (): Promise<ODataRequest<PurchasingView>> {
-    console.log("HIER: " + ENV.ODATA_HPI_HANA_USERNAME)
     return new Promise((resolve, reject) => {
         const targetUrl = "http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/purchasing_view/?$format=json"
         const config = {

@@ -47,6 +47,8 @@
 <SvelteTable
     rows={data}
     columns={columns}
+    classNameTable='table-auto border-collapse border border-slate-500 border-separate border-spacing-2 border border-slate-500'
+    classNameThead='border border-slate-600'
 />
 
 <style>
