@@ -30,7 +30,7 @@ import type { PurchasingView } from "$lib/interface/odata";
                         </th>
                     {/each}
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
                     </td>
                 </tr>
             {/each}
