@@ -12,7 +12,7 @@
 
 <div class="flex flex-col space-y-6">
     <h1 class="text-xl font-bold dark:text-white">Purchasing View</h1>
-    <p class="dark:text-gray-400">
+    <p class="text-gray-800 dark:text-gray-400">
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit non nisl ut gravida. Phasellus suscipit placerat ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl odio, volutpat at erat eu, vestibulum feugiat erat. Nullam urna urna, volutpat faucibus nisi ut, pulvinar imperdiet erat. Nulla tempor accumsan libero eget condimentum. Nulla facilisi. Quisque sed elementum ex, eu condimentum justo.
         

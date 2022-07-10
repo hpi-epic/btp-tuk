@@ -1,6 +1,5 @@
 <script lang="ts">
-import type { PurchasingView } from "$lib/interface/odata";
-
+    import type { PurchasingView } from "$lib/interface/odata";
 
     export let columns: string[]
     export let rows: any
@@ -23,7 +22,7 @@ import type { PurchasingView } from "$lib/interface/odata";
         </thead>
         <tbody>
             {#each rows as row, rowIndex}
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr class="bg-white bg-gray-100 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
                     {#each columns as column, columnIndex}
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                             {row[column]}
