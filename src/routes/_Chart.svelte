@@ -5,7 +5,7 @@
 <script lang="ts">
 	import Chart from 'chart.js/auto/auto.js';
 	import { onMount } from 'svelte';
-    import { themeDark } from "./../stores"
+    import { themeDark } from "../stores"
 
 	export let yValues: number[]
 	export let xValues: string[]

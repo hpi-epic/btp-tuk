@@ -50,7 +50,7 @@
         themeDark.set(window.document.documentElement.classList.contains('dark'))
     })
 
-    import Logo from "./Logo.svelte"
+    import Logo from "./_logo.svelte"
 
     const onChangeMode = () => {
         themeDark.update((current) => !current)

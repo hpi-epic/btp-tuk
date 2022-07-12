@@ -1,9 +1,9 @@
 
 <script>
   import "../app.css";
-  import Navbar from "./layout/Navbar.svelte"
-  import Footer from "./layout/Footer.svelte"
-  import Navigation from "./layout/Navigation.svelte";
+  import Navbar from "./layout/_navbar.svelte"
+  import Footer from "./layout/_footer.svelte"
+  import Navigation from "./layout/_navigation.svelte";
 </script>
 
 

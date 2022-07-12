@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Chart from "../_Chart.svelte"
+    import Chart from "../_chart.svelte"
     import _ from "lodash"
     import type { VendorsView } from "$lib/interface/odata";
 

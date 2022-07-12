@@ -1,10 +1,8 @@
 <script lang="ts">
-    //@ts-ignore svelte-table does not have any typings and we do not want to add them manuelly
     import type { PurchasingView } from '$lib/interface/odata';
-    import Table from "./_Table.svelte";
-    import Chart from "./_Chart.svelte";
+    import Table from "./_table.svelte";
+    import Chart from "./_chart.svelte";
     import _ from 'lodash';
-    import { goto } from '$app/navigation';
 
     // Svelte executes the Get() function in index.ts automatically
     export let data: PurchasingView[];
