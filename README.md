@@ -13,14 +13,14 @@ Many enterprises use a hybrid setup using on-premise and cloud-based software si
 In this exercise, we deploy a small application to a cloud platform that requests data from an on-premise SAP HANA instance. The instance is located at the HPI and (normally) only accessible within the network or via a VPN. You will learn how to deploy an application to the SAP BTP, which uses data relying on an on-premise SAP HANA database.
 
 Most cloud applications consist of multiple microservices. The architecture of our exercise is divided into two parts: first, services and applications replying at the HPI, and second your applications deployed on the SAP BTP.
-
+<!-- TODO: adapt img: remove destination service -->
 ![](img/structure.png)
 
 In the following, we briefly describe the functionality of each application/ service of the exercise architecture. 
 
 **HPI1: SAP HANA** The SAP HANA is an in-memory database developed by SAP. The SAP HANA is hosted at ``vm-reset.eaalab.hpi.uni-potsdam.de``. The SAP HANA stores multiple tables from the ERP S/4HANA which should be familier to you from exercise 1. For this exercise, instead of querying the database via TCP, we use an so called OData Service to access data via HTTP.
 
-**HPI2: OData Service**  An OData Service is a RESTful API which follows the [Open Data Protocol standard](https://www.odata.org/). The standard exists in multiple versions, however we use OData version 2. For you convience, the OData Service is already implemented as a so called XS Service directly on the SAP HANA. The API is accesasable via ``http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/hello.xsodata/VBAK/?$format=json``.
+**HPI2: OData Service**  An OData Service is a RESTful API which follows the [Open Data Protocol standard](https://www.odata.org/). The standard exists in multiple versions, however we use OData version 2. For you convience, the OData Service is already implemented as a so called XS Service directly on the SAP HANA. The API is accesasable via ``http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/VBAK/?$format=json``.
 
 **HPI3: SAP Cloud Connector**
 [SAP Cloud Connector (SCC)](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html) is a software that connects the SAP BTP and existing on-premise systems. We already deployed one instance on the same machine as our SAP HANA. In course of this exercise, you will connect your SAP BTP subaccount to the SCC in order to access the HPI on-premise SAP HANA. The SCC is accessible ``https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/``.
@@ -28,20 +28,20 @@ In the following, we briefly describe the functionality of each application/ ser
 **BTP1: SvelteKit Application**
 [SvelteKit](https://kit.svelte.dev/) is a framework for building web applications. You will use it to develop an application that queries data from the on-premise SAP HANA and deploy it to the SAP BTP.
 
-**BTP2: Destination Service**
-The Destination service lets you retrieve the backend destination details you need to configure applications in SAP BTP's Cloud Foundry environment.
+<!-- **BTP2: Destination Service**
+The Destination service lets you retrieve the backend destination details you need to configure applications in SAP BTP's Cloud Foundry environment. -->
 
 **BTP3: Connectivity Service**
 SAP BTP's Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
 
-In this exercise, we create two services (provided by SAP) and one application (that you have to program) on the SAP BTP. 
+In this exercise, we create one service (provided by SAP) and one application (that you have to program) on the SAP BTP. 
 
 ### Prerequisites
 To work on the excersie you need:
 
 - [Node 16 including NPM](https://nodejs.org/en/download/)
 - [Git](https://git-scm.com/)
-- Editor (we recommend [Visual Studio Code](https://code.visualstudio.com/))
+- An editor (we recommend [Visual Studio Code](https://code.visualstudio.com/))
 - A phone number (for the SAP BTP account creation)
 
 ### Account creation
@@ -89,7 +89,7 @@ As described above, we use the [SCC](https://blogs.sap.com/2022/02/03/cloud-conn
 
 Please follow these steps to configure the SCC to connect your SAP BTP account:
 
->Please note that you all share one instance since the SAP Cloud Connector does not support proper user management. Do not delete the subaccounts of your fellow students! We will find you!
+>Please note that you all share one instance since the SAP Cloud Connector does not support proper user management. Do not delete the subaccounts of your fellow students!
 
 1. The instance running at EPIC is available [here](https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/). Please open it and use the following credentials to log in:
     ````
@@ -133,10 +133,11 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
     ![](img/btp-scc.png)    
 3. You did it! We can leave the SCC now and start building our app.
 
-### GitHub Clone
+### Clone the Git Repository
 
 For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). (You do not need to understand what Svelte is doing, however it is a cool framework for frontend development) Clone the project via git clone and install the dependencies.
 
+<!-- TODO: set git clone link -->
 ````
 > git clone <TODO>
 > npm install
@@ -181,8 +182,3 @@ In your Cloud Foundry spaces, you can find your deployed applications and access
 ### Optional: Clean-up 
 - delete account
 - delete cli
-
-### TODO (from https://answers.sap.com/questions/13222105/use-nodejs.html)
-- Credential store ?
-- connectivity service
-- destination service

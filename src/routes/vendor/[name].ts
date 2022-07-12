@@ -1,30 +1,37 @@
 import _ from "lodash";
 import axios from 'axios';
-import type { ODataRequest, PurchasingView } from "$lib/interface/odata"
+import type { ODataRequest, VendorsView } from "$lib/interface/odata"
 import { useProxy } from "$lib/proxy";
 import { ENV } from "$lib/environment";
 
-// if we are in production mode, accordingly, using the SAP BTP, we need to use the Proxy
 if(process.env.NODE_ENV == 'production'){
     await useProxy(axios)
 }
 
-/**
- * Get HTTP Method accessable via '/__data.json'. Svelte uses this function automatically when accessing '/' via index.html
- */
-export const get = async () => {
+export async function get(params: {params: {name: string}}) { 
     try {
-        const data: ODataRequest<PurchasingView> = await purchasingViewGet();
+        const data: ODataRequest<VendorsView> = await vendorsViewGet(params.params.name);
 
+        if (data.d.results.length == 0){
+            return {
+                status: 404,
+                headers: {},
+                body: {
+                    data: data.d.results,
+                    name: params.params.name
+                }
+            }
+        }
         return {
             status: 200,
             headers: {},
             body: {
-                data: data.d.results // svelte syntax -> this makes the results accessable in the exported variable "data" in index.svelte 
+                data: data.d.results,
+                name: params.params.name
             }
         }
     } catch (e){
-        console.log("Cannot access Purchasing View. " + e)
+        console.log("Cannot access Vendor View. " + e)
         return {
             body: {
                 status: 501,
@@ -41,9 +48,10 @@ export const get = async () => {
  * @note When using the SAP BTP / production mode proxy informations are automatically added to the request configuration via lib/proxy.ts
  * @returns 
  */
-const purchasingViewGet = async function (): Promise<ODataRequest<PurchasingView>> {
+ const vendorsViewGet = async function (name: string): Promise<ODataRequest<VendorsView>> {
+
     return new Promise((resolve, reject) => {
-        const targetUrl = "http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/purchasing_view/?$format=json"
+        const targetUrl = `http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/vendors_view/?$format=json&$filter=COMPANY eq '${name}'`
         const config = {
             headers: {
                 'cache-control': 'public, max-age=3600',
@@ -53,6 +61,7 @@ const purchasingViewGet = async function (): Promise<ODataRequest<PurchasingView
                 password: ENV.ODATA_HPI_HANA_PASSWORD
             }
         }
+        console.log(targetUrl)
         axios.get(targetUrl, config)
             .then(response => {resolve(response.data)})
             .catch(error => {reject(error)})

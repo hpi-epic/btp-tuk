@@ -3,7 +3,7 @@
 </div>  
 
 <script lang="ts">
-	import Chart from 'chart.js/auto';
+	import Chart from 'chart.js/auto/auto.js';
 	import { onMount } from 'svelte';
     import { themeDark } from "./../stores"
 
@@ -55,7 +55,6 @@
 		});
 
         themeDark.subscribe((isDarkmode) => {
-            console.log(isDarkmode)
             if(isDarkmode){
                 // Tick color 
                 chart.options.scales.x.ticks.color = "rgb(31 41 55)"

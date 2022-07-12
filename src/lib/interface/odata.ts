@@ -14,7 +14,13 @@ export interface Object {
 
 export interface PurchasingView extends Object {
     COMPANY:       string;
-    TOTAL_REVENUE: string;
+    TOTAL_EXPENSES: string;
+}
+
+export interface VendorsView extends Object {
+    COMPANY:       string;
+    VENDOR:        string;
+    TOTAL_EXPENSES: string;
 }
 
 export interface Metadata {
