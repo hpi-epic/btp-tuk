@@ -135,7 +135,7 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
 
 ### Clone the Git Repository
 
-For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). (You do not need to understand what Svelte is doing, however it is a cool framework for frontend development) Clone the project via git clone and install the dependencies.
+For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). You do not need to understand what Svelte is doing, however it is a cool framework for frontend development. Clone the project via ``git clone`` and install the dependencies.
 
 <!-- TODO: set git clone link -->
 ````
@@ -179,9 +179,16 @@ In your Cloud Foundry spaces, you can find your deployed applications and access
 ![](img/cf-spaces-1.png)
 ![](img/cf-spaces-2.png)
 
+### Submission
+After finishing this excercise, please create the following artefacts to upload them in our course on Moodle:
+- TODO
+- ...
+
+The deadline is DD.MM.YYYY, end of day.
+
 ### Optional: Clean-up
 After the exercise and submitting your results, you can clean up your account and machine.
-If you are using homebrew on macOS, you can use the following command to remove the cloud foundry CLI:
+If you are using homebrew on macOS, you can use the following command to remove the Cloud Foundry CLI:
 ```shell
 > brew uninstall cloudfoundry/tap/cf-cli@8
 ```
