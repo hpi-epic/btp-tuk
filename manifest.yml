@@ -8,5 +8,4 @@ applications:
     random-route: true
     services:
       - sample-connectivity-service
-      - sample-destination-service
       

@@ -5,7 +5,7 @@ import { useProxy } from "$lib/proxy";
 import { ENV } from "$lib/environment";
 
 // if we are in production mode, accordingly, using the SAP BTP, we need to use the Proxy
-if(process.env.NODE_ENV == 'production'){
+if(ENV.MODE == 'production'){
     await useProxy(axios)
 }
 

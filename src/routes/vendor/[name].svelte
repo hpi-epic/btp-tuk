@@ -1,11 +1,11 @@
 <script lang="ts">
     import Chart from "../_Chart.svelte"
-
     import _ from "lodash"
+    import type { VendorsView } from "$lib/interface/odata";
 
 
     export let name: string
-    export let data: string
+    export let data: VendorsView[]
 </script>
 
 <div class="flex flex-col space-y-6">
@@ -15,5 +15,4 @@
     </p>
 
     <Chart xValues={_.map(data, "VENDOR")} yValues={_.map(data, "TOTAL_EXPENSES").map(Number)}/>
-    <!--Table columns={['VENDOR', 'TOTAL_REVENUE']} rows={data}/-->
 </div>

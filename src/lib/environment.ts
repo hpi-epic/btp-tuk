@@ -7,6 +7,8 @@ const getVariable = (key: string) => {
 
 export const ENV = {
     ODATA_HPI_HANA_USERNAME: getVariable('VITE_ODATA_HPI_HANA_USERNAME'),
-    ODATA_HPI_HANA_PASSWORD: getVariable('VITE_ODATA_HPI_HANA_PASSWORD')
+    ODATA_HPI_HANA_PASSWORD: getVariable('VITE_ODATA_HPI_HANA_PASSWORD'),
+    VCAP_SERVICES: getVariable('VCAP_SERVICES'),
+    MODE: getVariable('NODE_ENV')
 };
 

@@ -4,6 +4,7 @@
     import Table from "./_Table.svelte";
     import Chart from "./_Chart.svelte";
     import _ from 'lodash';
+    import { goto } from '$app/navigation';
 
     // Svelte executes the Get() function in index.ts automatically
     export let data: PurchasingView[];

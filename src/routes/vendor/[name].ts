@@ -4,24 +4,25 @@ import type { ODataRequest, VendorsView } from "$lib/interface/odata"
 import { useProxy } from "$lib/proxy";
 import { ENV } from "$lib/environment";
 
-if(process.env.NODE_ENV == 'production'){
-    await useProxy(axios)
+//if(ENV.MODE == 'production'){
+//    await useProxy(axios)
+//}
+
+/*
+export const get = async (params: {params:{name: string}}) => {
+    return {
+        body: {
+            name: params.params.name,
+            data: [{VENDOR: "HAUS", TOTAL_EXPENSES: 20}, {VENDOR: "MAUS", TOTAL_EXPENSES: 10}]
+        }
+    }
 }
+*/
 
 export async function get(params: {params: {name: string}}) { 
     try {
-        const data: ODataRequest<VendorsView> = await vendorsViewGet(params.params.name);
+        const data: ODataRequest<VendorsView> = await vendorsViewGet( params.params.name);
 
-        if (data.d.results.length == 0){
-            return {
-                status: 404,
-                headers: {},
-                body: {
-                    data: data.d.results,
-                    name: params.params.name
-                }
-            }
-        }
         return {
             status: 200,
             headers: {},
