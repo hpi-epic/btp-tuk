@@ -31,7 +31,7 @@ In the following, we briefly describe the functionality of each application/ ser
 <!-- **BTP2: Destination Service**
 The Destination service lets you retrieve the backend destination details you need to configure applications in SAP BTP's Cloud Foundry environment. -->
 
-**BTP3: Connectivity Service**
+**BTP2: Connectivity Service**
 SAP BTP's Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
 
 In this exercise, we create one service (provided by SAP) and one application (that you have to program) on the SAP BTP. 
@@ -135,7 +135,7 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
 
 ### Clone the Git Repository
 
-For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). (You do not need to understand what Svelte is doing, however it is a cool framework for frontend development) Clone the project via git clone and install the dependencies.
+For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). You do not need to understand what Svelte is doing, however it is a cool framework for frontend development. Clone the project via ``git clone`` and install the dependencies.
 
 <!-- TODO: set git clone link -->
 ````
@@ -179,6 +179,17 @@ In your Cloud Foundry spaces, you can find your deployed applications and access
 ![](img/cf-spaces-1.png)
 ![](img/cf-spaces-2.png)
 
-### Optional: Clean-up 
-- delete account
-- delete cli
+### Submission
+After finishing this excercise, please create the following artefacts to upload them in our course on Moodle:
+- TODO
+- ...
+
+The deadline is DD.MM.YYYY, end of day.
+
+### Optional: Clean-up
+After the exercise and submitting your results, you can clean up your account and machine.
+If you are using homebrew on macOS, you can use the following command to remove the Cloud Foundry CLI:
+```shell
+> brew uninstall cloudfoundry/tap/cf-cli@8
+```
+Also, you can delete your Cloud Foundry space in your BTP account.
