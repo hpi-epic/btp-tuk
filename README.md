@@ -68,6 +68,7 @@ The BTP uses [cloud foundry](https://www.cloudfoundry.org/) to deploy applicatio
     Email: <your account mail>
     Password: <your pw>
     ````
+<!-- TODO: Password ins Moodle -->
 
 ### Create Connectivity Service
 In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our research group, you need to create an instance of BTP's *Connectivity Service*.
@@ -77,7 +78,6 @@ In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our r
     ![](img/service-marketplace.png)
 3. Search for *Connectivity Service* and click on *Create*:
     ![](img/create-connectivity-service.png)
-<!-- TODO: change screenshot -->
 4. Follow the setup (you don't have to enter parameters):
     ![](img/setup.png)
 5. Check the status under *Instances* (status should be *created* after a few moments):
@@ -96,6 +96,7 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
     User Name:  student
     Password:   Student2022
     ````
+
 2. Add your BTP subaccount to the SAP Cloud Connector:
     1. Switch to the [BTP](https://account.hanatrial.ondemand.com): Click on your subaccount:
     ![](img/trial-account.png)
