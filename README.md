@@ -2,7 +2,7 @@
 
 ## Goal of the Exercise
 
-This exercise should give a first impression about cloud platforms using the example of the SAP business technology platform (BTP). The SAP BTP is a Platform as a Service (PaaS) offering by SAP that helps you to connect to connect data and business processes of your enterprise. The goal of this exercise is to show you basic functionalities of the SAP BTP prior to our block week.
+This exercise should give a first impression about cloud platforms using the example of the SAP business technology platform (BTP). The SAP BTP is a Platform as a Service (PaaS) offering by SAP that helps you to connect data and business processes of your enterprise. The goal of this exercise is to show you basic functionalities of the SAP BTP prior to our block week.
 
 > Note: We only use the SAP BTP as an example for cloud platforms. Other cloud platforms such as Google Platform, Microsoft Azure and Amazon AWS are also capable to enhance businesses.
 
