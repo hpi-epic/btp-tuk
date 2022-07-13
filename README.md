@@ -49,26 +49,10 @@ To work on the excersie you need:
 Before we can create services on the cloud platform, we have to create a free account on the SAP BTP.  
 
 0. In case you do not have a SAP BTP Account: Please [register](https://www.sap.com/products/business-technology-platform/trial.html?trial=https%3A%2F%2Fwww.sap.com%2Fregistration%2Ftrial.908cb719-0e03-421c-a091-daca045f0acc.html) for a free trail account.
-1. [Login](https://account.hana.ondemand.com/) into an account for the SAP BTP (You can skip the process of validating your phone number)
-2. Select *US East (VA) - AWS* as region for our trail account.
+1. [Login](https://account.hana.ondemand.com/) into an account for the SAP BTP
+2. Select *US East (VA) - AWS* as region for your trail account.
 3. Wait until your account was fully created. 
 4. Click on *Go To Your Trial Account*.
-
-### CLI Installation
-
-In most cases you'll use the command line tool if you interact with cloud platforms since it is way faster than using the UI of the BTP, AWS, Google Platform or Azure.
-The BTP uses [cloud foundry](https://www.cloudfoundry.org/) to deploy applications.
-
-1. Follow the [instructions](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide)
-2. Open your terminal and execute following command to login into our account. You can find the API endpoint in your trial account in section *Cloud Foundry Environment*.
-    ![](img/cf-api.png)
-    ````
-    > cf login
-    API endpoint: https://api.cf.us10.hana.ondemand.com
-    Email: <your account mail>
-    Password: <your pw>
-    ````
-<!-- TODO: Password ins Moodle -->
 
 ### Create Connectivity Service
 In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our research group, you need to create an instance of BTP's *Connectivity Service*.
@@ -78,7 +62,7 @@ In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our r
     ![](img/service-marketplace.png)
 3. Search for *Connectivity Service* and click on *Create*:
     ![](img/create-connectivity-service.png)
-4. Follow the setup (you don't have to enter parameters):
+4. Follow the setup (you don't have to enter parameters) and remember the instance name (you will need it later):
     ![](img/setup.png)
 5. Check the status under *Instances* (status should be *created* after a few moments):
     ![](img/instances.png)
@@ -134,6 +118,21 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
     ![](img/btp-scc.png)    
 3. You did it! We can leave the SCC now and start building our app.
 
+### CLI Installation
+
+In most cases you'll use the command line tool if you interact with cloud platforms since it is way faster than using the UI of the BTP, AWS, Google Platform or Azure.
+The BTP uses [cloud foundry](https://www.cloudfoundry.org/) to deploy applications.
+
+1. Follow the [instructions](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide)
+2. Open your terminal and execute following command to login into our account. You can find the API endpoint in your trial account in section *Cloud Foundry Environment*.
+    ![](img/cf-api.png)
+    ````
+    > cf login
+    API endpoint: https://api.cf.us10.hana.ondemand.com
+    Email: <your account mail>
+    Password: <your pw>
+    ````
+
 ### Clone the Git Repository
 
 For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). You do not need to understand what Svelte is doing, however it is a cool framework for frontend development. Clone the project via ``git clone`` and install the dependencies.
@@ -144,7 +143,20 @@ For your convenience, we prepared a small [Svelte](https://svelte.dev/) applicat
 > npm install
 ````
 
-TODO CREATE .env.development
+In case you want to start the application on your machine, you have to define two environment variables which are used by app to connect to the SAP HANA OData Service.
+
+Create a file ``.env.development`` with following content:
+
+```
+VITE_ODATA_HPI_HANA_USERNAME=STUDENT2021
+VITE_ODATA_HPI_HANA_PASSWORD=Student2021
+```
+
+Now you can serve your application on ``localhost:3000`` by using 
+
+```
+> npm run dev
+```
 
 ### Deploy Your Application
 To deploy your application, you need to create a ``manifest.yml`` file in your project's root folder as described [here](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html):
@@ -152,7 +164,7 @@ To deploy your application, you need to create a ``manifest.yml`` file in your p
 
 ```yaml
 applications:
-  - name: btk-tuk
+  - name: btp-tuk
     path: ./
     buildpacks:
       - nodejs_buildpack
@@ -160,7 +172,7 @@ applications:
     command: node dist/index.js
     random-route: true
     services:
-      - <your connectivity service>
+      - <your connectivity service instance name>
 ```
 
 Our app requires two environment variables to connect to our on-premises SAP HANA: username and password to access the ODataService.  With the following two commands you can add the two environment variables to our cloud application.
