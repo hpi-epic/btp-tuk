@@ -62,12 +62,11 @@ In order to access the SAP HANA DB using the SAP Cloud Connector hosted at our r
     ![](img/service-marketplace.png)
 3. Search for *Connectivity Service* and click on *Create*:
     ![](img/create-connectivity-service.png)
-<!-- TODO: change screenshot -->
-1. Follow the setup (you don't have to enter parameters) and remember the instance name (you will need it later):
+4. Follow the setup (you don't have to enter parameters) and remember the instance name (you will need it later):
     ![](img/setup.png)
-2. Check the status under *Instances* (status should be *created* after a few moments):
+5. Check the status under *Instances* (status should be *created* after a few moments):
     ![](img/instances.png)
-3. Voilà!
+6. Voilà!
 
 ### Connect Your BTP Account To The On-prom Cloud Connector
 As described above, we use the [SCC](https://blogs.sap.com/2022/02/03/cloud-connector-explained-in-simple-terms/) to enable SAP cloud products to connect to the on-premise systems in our own landscape. It basically tunnels the requests.
