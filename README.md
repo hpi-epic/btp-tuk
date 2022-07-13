@@ -80,6 +80,7 @@ Please follow these steps to configure the SCC to connect your SAP BTP account:
     User Name:  student
     Password:   Student2022
     ````
+
 2. Add your BTP subaccount to the SAP Cloud Connector:
     1. Switch to the [BTP](https://account.hanatrial.ondemand.com): Click on your subaccount:
     ![](img/trial-account.png)
