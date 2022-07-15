@@ -1,5 +1,5 @@
 import _ from "lodash";
-import axios from 'axios';
+import axios, { Axios, AxiosError } from 'axios';
 import type { ODataRequest, PurchasingView } from "$lib/interface/odata"
 import { useProxy } from "$lib/proxy";
 import { ENV } from "$lib/environment";
@@ -24,7 +24,7 @@ export const get = async () => {
             }
         }
     } catch (e){
-        console.log("Cannot access Purchasing View. " + e)
+        console.log("Cannot access Purchasing View on SAP HANA. Did you set the credentials as environment correctly? " + e)
         return {
             body: {
                 status: 501,

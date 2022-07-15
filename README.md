@@ -63,7 +63,7 @@ To access the SAP HANA DB using the SAP Cloud Connector hosted at our research g
     ![](img/create-connectivity-service.png)
 4. Follow the setup (you don't have to enter parameters) and remember the instance name (you will need it later):
     ![](img/setup.png)
-5. Check the status under *Instances* (status should be *created* after a few moments):
+5. Check the status under *Instances and Subscriptions* (status should be *created* after a few moments):
     ![](img/instances.png)
 6. Voilà!
 
@@ -72,26 +72,30 @@ As described above, we use the [SCC](https://blogs.sap.com/2022/02/03/cloud-conn
 
 Please follow these steps to configure the SCC to connect to your SAP BTP account:
 
->Please note that you all share one instance since the SAP Cloud Connector does not support proper user management. Do not delete the subaccounts of your fellow students!
+> Please note that you all share one instance since the SAP Cloud Connector does not support proper user management. Do not delete the subaccounts of your fellow students!
 
-1. The instance running at EPIC is available [here](https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/). Please open it and use the following credentials to log in:
+1. Get your SAP BTP subaccount ID:
+    1. In case you do not see your subaccount view: Go to your [BTP](https://account.hanatrial.ondemand.com) Trail Account: Click on your subaccount:
+    ![](img/trial-account.png)
+    1. Copy/ Remember/ save your subaccount ID:
+    ![](img/subaccount-id.png)
+
+2. Connect the SCC instance with your subaccount:
+
+   1. The SCC instance running at EPIC is available [here](https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/). Please open the website and use the following credentials to log in:
     ````
     User Name:  student
     Password:   Student2022
     ````
 
-2. Add your BTP subaccount to the SAP Cloud Connector:
-    1. Switch to the [BTP](https://account.hanatrial.ondemand.com): Click on your subaccount:
-    ![](img/trial-account.png)
-    2. Copy your subaccount ID:
-    ![](img/subaccount-id.png)
-    3. Back to the SAP Cloud Connector: Click add subaccount:
+    > Note: Remember that you have to be in the HPI network or use a VPN to access the instance.
+    1. Click add subaccount:
     ![](img/add-subaccount-scc.png)
-    4. Use your BTP credentials to log in:
+    1. Add a new subaccount by using your BTP credentials to log in. As 'Display name' use a unique name (e.g. your firstname + lastname). You will need the name in the next step.
     ![](img/form-subaccount.png)
-    5. Switch to your own subaccount:
+    1. In case your display name is not shown in the middle of the website as shown in the next screenshot, click on the small icon in the field 'Subaccount' to switch to your subaccount:
     ![](img/switch-subaccounts.png)
-    6. Connect the on-premise HANA to the cloud by providing a mapping from the virtual host (vm-he4-hana.eaalab.hpi.uni-potsdam.de) to the internal host (localhost):
+    1. On the left side of the website click on "Cloud To-On-Premise" (it should be right under your choosen display name). Connect the on-premise HANA to the cloud by providing a mapping from the virtual host (vm-he4-hana.eaalab.hpi.uni-potsdam.de) to the internal host (localhost):
     ![](img/add-subacc-1.png)
     Back-end type: ````SAP HANA````
     ![](img/add-subacc-2.png)
@@ -138,8 +142,9 @@ For your convenience, we prepared a small [Svelte](https://svelte.dev/) applicat
 
 <!-- TODO: set git clone link -->
 ````shell
-> git clone <TODO>
-> npm install
+git clone <TODO>
+cd btp-tuk
+npm install
 ````
 
 If you want to start the application on your machine, you have to define two environment variables used by the app to connect to the SAP HANA OData Service.
@@ -172,20 +177,18 @@ applications:
     random-route: true
     services:
       - <your connectivity service instance name>
+    env:
+        VITE_ODATA_HPI_HANA_USERNAME: STUDENT2021
+        VITE_ODATA_HPI_HANA_PASSWORD: Student2021
 ```
 
-Our app requires two environment variables to connect to our on-premises SAP HANA: username and password to access the OData service. You can add the two environment variables to our cloud application with the following two commands.
-
-```shell
-> cf set-env btk-tuk VITE_ODATA_HPI_HANA_USERNAME STUDENT2021
-> cf set-env btk-tuk VITE_ODATA_HPI_HANA_PASSWORD Student2021
-```
+> Remember to fill in your own connectivity service instance name instead of using *\<your connectivity service instance name\>*.
 
 Before deploying the application to the SAP BTP, we first must build the app. Use the following commands to build and push your application to the BTP:
 
 ```shell
-> npm run build
-> cf push
+npm run build
+cf push
 ```
 In your Cloud Foundry spaces, you can find your deployed applications and access them:
 ![](img/cf-spaces-0.png)
