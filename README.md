@@ -100,9 +100,9 @@ Please follow these steps to configure the SCC to connect to your SAP BTP accoun
     ![](img/add-subacc-2.png)
     Protocol: ````HTTP````
     ![](img/add-subacc-3.png)
-    Internal host: ````localhost````, internal port: ````8000````
+    Change internal host to: ````localhost````, internal port: ````8000````
     ![](img/add-subacc-4.png)
-    Virtual host: ````vm-he4-hana.eaalab.hpi.uni-potsdam.de````, virtual port: ````8000````
+    Change virtual host to: ````vm-he4-hana.eaalab.hpi.uni-potsdam.de````, virtual port: ````8000````
     ![](img/add-subacc-5.png)
     Principal type: ````None````
     ![](img/add-subacc-6.png)
