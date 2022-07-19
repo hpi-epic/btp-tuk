@@ -74,7 +74,7 @@ Please follow these steps to configure the SCC to connect to your SAP BTP accoun
 > Please note that you all share one instance since the SAP Cloud Connector does not support proper user management. Do not delete the subaccounts of your fellow students!
 
 1. Get your SAP BTP subaccount ID:
-    1. In case you do not see your subaccount view: Go to your [BTP](https://account.hanatrial.ondemand.com) Trail Account: Click on your subaccount:
+    1. In case you do not see your subaccount view: Go to your [BTP](https://account.hanatrial.ondemand.com) Trial Account: Click on your subaccount:
     ![](img/trial-account.png)
     1. Copy/ Remember/ save your subaccount ID:
     ![](img/subaccount-id.png)
@@ -90,7 +90,7 @@ Please follow these steps to configure the SCC to connect to your SAP BTP accoun
     > Note: Remember that you have to be in the HPI network or use a VPN to access the instance.
     1. Click add subaccount:
     ![](img/add-subaccount-scc.png)
-    1. Add a new subaccount by using your BTP credentials to log in. As 'Display name' use a unique name (e.g. your firstname + lastname). You will need the name in the next step.
+    1. Add a new subaccount by using your BTP credentials to log in. As 'Display name,' use a unique name (e.g., your firstname + lastname). You will need the name in the next step. The subaccount ID is the one you copied/ remembered/ saved before.
     ![](img/form-subaccount.png)
     1. In case your display name is not shown in the middle of the website as shown in the next screenshot, click on the small icon in the field 'Subaccount' to switch to your subaccount:
     ![](img/switch-subaccounts.png)
@@ -140,9 +140,9 @@ The BTP uses [cloud foundry](https://www.cloudfoundry.org/) to deploy applicatio
 For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). You do not need to understand what Svelte is doing. However, it is a fantastic framework for frontend development. Clone the project via ``git clone`` and install the dependencies.
 
 ````shell
-git clone git@github.com:hpi-epic/btp-tuk.git (HTTPS: https://github.com/hpi-epic/btp-tuk.git)
-cd btp-tuk
-npm install
+> git clone git@github.com:hpi-epic/btp-tuk.git # or HTTPS: https://github.com/hpi-epic/btp-tuk.git
+> cd btp-tuk
+> npm install
 ````
 
 If you want to start the application on your machine, you have to define two environment variables used by the app to connect to the SAP HANA OData Service.
@@ -189,16 +189,16 @@ applications:
 Before deploying the application to the SAP BTP, we first must build the app. Use the following commands to build and push your application to the BTP:
 
 ```shell
-npm run build
-cf push
+> npm run build
+> cf push
 ```
 In your Cloud Foundry spaces, you can find your deployed applications and access them:
 ![](img/cf-spaces-0.png)
 ![](img/cf-spaces-1.png)
 ![](img/cf-spaces-2.png)
 
-### Add Space Developer to space
-
+### Submission
+After finishing this exercise, please add us (Lukas and Tobias) as space developers, so we can access your deployed application. 
 Currently, only your SAP BTP account is allowed to view and change applications and services in your space. To validate your exercise, we require access to your space.
 
 1. Navigate to your ``dev`` space (where you can see your deployed application) and click on "Members".
@@ -207,14 +207,16 @@ Currently, only your SAP BTP account is allowed to view and change applications 
 ![](img/add-member-2.png)
 3. Add ``lukas.boehme@hpi.de`` and ``tobis.wuttke@hpi.de`` in the field "E-mails" and assign the role "Space Developer" to your space.
 ![](img/add-member-3.png)
-4. Finished! Now, we can view your space and check if you deployed the services correctly!
+4. Now, we can view your space and check if you deployed the services correctly!
 
-### Submission
-After finishing this exercise, please create the following artifacts to upload them in our course on Moodle:
-- TODO
-- ...
+After you did this, please submit your subaccount's URL using Moodle:
 
-The deadline is DD.MM.YYYY, end of the day.
+1. Please go back to your subaccount as described [above](#create-connectivity-service).
+1. Copy the URL:
+![](img/get-url.png)
+1. Submit the URL in the submission's text field.
+
+The deadline is Wednesday, 20 July 2022, end of the day.
 
 ### Optional: Clean-up
 After the exercise and submitting your results, you can clean up your account and machine.
