@@ -120,6 +120,11 @@ Please follow these steps to configure the SCC to connect to your SAP BTP accoun
     ![](img/btp-scc.png)    
 3. You did it! We can leave the SCC now and start building our app.
 
+> If you encounter the error message below, please log in to https://account.sap.com/. Then go to your user's detail page. You will find a section called "Reset Account Password". Try to connect to SCC with the new password you will define in this section.
+> In case your password is locked, just log out and use the "Forgot password?" link.
+>
+> ``417 Could not download configuration file. See "Log And Trace Files" and in particular Ijs_trace.log for details. Consult SAP note 2460641 for possible remedies.``
+
 ### CLI Installation
 
 In most cases, you'll use the command line tool if you interact with cloud platforms since it is way faster than using the UI of the BTP, AWS, Google Platform, or Azure.
