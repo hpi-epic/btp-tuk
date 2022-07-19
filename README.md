@@ -221,7 +221,7 @@ After adding us as space developers, please submit your subaccount's URL using M
 ![](img/get-url.png)
 1. Submit the URL in the submission's text field.
 
-The deadline is Wednesday, 20 July 2022, end of the day.
+The deadline is Wednesday, 3 August 2022, 11:59 PM.
 
 ### Optional: Clean-up
 After the exercise and submitting your results, you can clean up your account and machine.
