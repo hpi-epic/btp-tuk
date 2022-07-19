@@ -10,7 +10,7 @@ This exercise should give a first impression of cloud platforms using the exampl
 
 Many enterprises use a hybrid setup using on-premise and cloud-based software simultaneously. Applications deployed in the cloud often access data persisted in the on-premise systems of a company. Imagine HPI's purchasing department wants to create a cloud application to visualize how much money they spend on every vendor, extending the functionality of their ERP system by using the SAP BTP.
 
-In this exercise, we deploy a small application to a cloud platform that requests data from an on-premise SAP HANA instance. The instance is located at the HPI and (normally) only accessible within the network or via a VPN. You will learn how to deploy an application to the SAP BTP, which uses data relying on an on-premise SAP HANA database.
+In this exercise, we deploy a small application to a cloud platform that requests data from an on-premise SAP HANA instance. The instance is located at the HPI and only accessible within the network or via a VPN. You will learn how to deploy an application to the SAP BTP, which uses data relying on an on-premise SAP HANA database.
 
 Most cloud applications consist of multiple microservices. The architecture of our exercise is divided into two parts: first, services and applications replying at the HPI, and second your applications deployed on the SAP BTP.
 ![](img/structure.png)
@@ -24,7 +24,7 @@ In the following, we briefly describe the functionality of each application/ ser
 > Note: The address is only reachable within the HPI network.
 
 **HPI3: SAP Cloud Connector**
-[SAP Cloud Connector (SCC)](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html) is a software that connects the SAP BTP and existing on-premise systems. We have deployed one instance on the same machine as our SAP HANA. In this exercise, you will connect your SAP BTP subaccount to the SCC to access the HPI on-premise SAP HANA. The SCC is accessible ``https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/``.
+[SAP Cloud Connector (SCC)](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html) is software that connects the SAP BTP and existing on-premise systems. We have deployed one instance on the same machine as our SAP HANA. This exercise will connect your SAP BTP subaccount to the SCC to access the HPI on-premise SAP HANA. The SCC is accessible at ``https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/``.
 
 **BTP1: SvelteKit Application**
 [SvelteKit](https://kit.svelte.dev/) is a framework for building web applications. You will use it to develop an application that queries data from the on-premise SAP HANA and deploy it to the SAP BTP.
@@ -209,7 +209,7 @@ Currently, only your SAP BTP account is allowed to view and change applications 
 ![](img/add-member-3.png)
 4. Now, we can view your space and check if you deployed the services correctly!
 
-After you did this, please submit your subaccount's URL using Moodle:
+After adding us as space developers, please submit your subaccount's URL using Moodle:
 
 1. Please go back to your subaccount as described [above](#create-connectivity-service).
 1. Copy the URL:
