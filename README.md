@@ -29,9 +29,6 @@ In the following, we briefly describe the functionality of each application/ ser
 **BTP1: SvelteKit Application**
 [SvelteKit](https://kit.svelte.dev/) is a framework for building web applications. You will use it to develop an application that queries data from the on-premise SAP HANA and deploy it to the SAP BTP.
 
-<!-- **BTP2: Destination Service**
-The Destination service lets you retrieve the backend destination details you need to configure applications in SAP BTP's Cloud Foundry environment. -->
-
 **BTP2: Connectivity Service**
 SAP BTP's Connectivity service allows you to establish secure and reliable connectivity between your cloud applications and on-premise systems running in isolated networks.
 
@@ -142,9 +139,8 @@ The BTP uses [cloud foundry](https://www.cloudfoundry.org/) to deploy applicatio
 
 For your convenience, we prepared a small [Svelte](https://svelte.dev/) application using [SvelteKit](https://kit.svelte.dev/). You do not need to understand what Svelte is doing. However, it is a fantastic framework for frontend development. Clone the project via ``git clone`` and install the dependencies.
 
-<!-- TODO: set git clone link -->
 ````shell
-git clone <TODO>
+git clone git@github.com:hpi-epic/btp-tuk.git (HTTPS: https://github.com/hpi-epic/btp-tuk.git)
 cd btp-tuk
 npm install
 ````
@@ -163,6 +159,10 @@ Now you can serve your application on ``localhost:3000`` by using
 ```shell
 > npm run dev
 ```
+
+The application should look like that (maybe you see some other data, since we adjusted the content for the exercise)
+
+![](img/website.png)
 
 ### Deploy Your Application
 To deploy your application, you need to create a ``manifest.yml`` file in your project's root folder as described [here](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html):
