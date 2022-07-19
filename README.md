@@ -21,6 +21,8 @@ In the following, we briefly describe the functionality of each application/ ser
 
 **HPI2: OData Service**  An OData Service is a RESTful API that follows the [Open Data Protocol standard](https://www.odata.org/). The standard exists in multiple versions. However, we use OData version 2. For your convenience, the OData Service is already implemented as a so-called XS Service directly on the SAP HANA. The API is accessible via ``http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/``. Currently, we have two different collections: [purchasing_view](http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/purchasing_view/?$format=json) and [vendors_view](http://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8000/odataservice/api.xsodata/vendors_view/?$format=json). We will use both in our application.
 
+> Note: The address is only reachable within the HPI network.
+
 **HPI3: SAP Cloud Connector**
 [SAP Cloud Connector (SCC)](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html) is a software that connects the SAP BTP and existing on-premise systems. We have deployed one instance on the same machine as our SAP HANA. In this exercise, you will connect your SAP BTP subaccount to the SCC to access the HPI on-premise SAP HANA. The SCC is accessible ``https://vm-he4-hana.eaalab.hpi.uni-potsdam.de:8443/``.
 

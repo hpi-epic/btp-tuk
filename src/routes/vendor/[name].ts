@@ -62,7 +62,6 @@ export async function get(params: {params: {name: string}}) {
                 password: ENV.ODATA_HPI_HANA_PASSWORD
             }
         }
-        console.log(targetUrl)
         axios.get(targetUrl, config)
             .then(response => {resolve(response.data)})
             .catch(error => {reject(error)})

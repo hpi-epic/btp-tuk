@@ -14,7 +14,7 @@
                 <a href="/" class="mr-4 hover:underline md:mr-6 ">Home</a>
             </li>
             <li>
-                <a href="/" class="hover:underline">GitHub</a>
+                <a href="https://github.com/hpi-epic/btp-tuk" class="hover:underline">GitHub</a>
             </li>
         </ul>
     </div>
