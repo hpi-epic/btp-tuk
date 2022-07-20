@@ -217,7 +217,7 @@ Currently, only your SAP BTP account is allowed to view and change applications 
 ![](img/add-member-1.png)
 2. In the next window, click on "Add Members"
 ![](img/add-member-2.png)
-3. Add ``lukas.boehme@hpi.de`` and ``tobis.wuttke@hpi.de`` in the field "E-mails" and assign the role "Space Developer" to your space.
+3. Add ``lukas.boehme@hpi.de`` and ``tobias.wuttke@hpi.de`` in the field "E-mails" and assign the role "Space Developer" to your space.
 ![](img/add-member-3.png)
 4. Now, we can view your space and check if you deployed the services correctly!
 
